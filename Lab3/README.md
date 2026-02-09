@@ -1,19 +1,13 @@
 <img width="2205" height="742" alt="image" src="https://github.com/user-attachments/assets/3d38cfab-7f51-470c-83e9-0b92c3500825" />
 
 
-# Hannah Diaz
-# GEOG 676 GIS Programming
-# Spring 2026
-
-# Lab 3 - Object Oriented Programming, Shapes 
-
 
 # create classes 
-class Shape(): # creates parent class; kind of unnecessary here
+class Shape():
     def __init__(self):
         pass
 
-class Rectangle(Shape): # child classes
+class Rectangle(Shape):
     def __init__(self, l, w):
         self.length = l
         self.width = w
@@ -37,18 +31,18 @@ class Triangle(Shape):
 
 # read shape.txt file 
 file = open('C:\\GEOG676\\M4\\shape.txt', 'r')
-lines = file.readlines() # returns multiple lines/ each line has multiple values
+lines = file.readlines()
 file.close()
 
 
 # iterate
 for x in lines:
     splits = x.split(',') # splits line into individual elements using comma
-    shape = splits[0] # index 0 is name of shape
+    shape = splits[0]
 
     if shape == 'Rectangle':
-        rect = Rectangle(int(splits[1]), int(splits[2])) # initialize object as Rectangle class; index
-        print('Area of rectangle is: ', rect.getArea()) # calls getArea method from Rectangle class
+        rect = Rectangle(int(splits[1]), int(splits[2]))
+        print('Area of rectangle is: ', rect.getArea())
     
     elif shape == 'Circle':
         circ = Circle(int(splits[1])) # initialize object as Circle class
@@ -60,35 +54,4 @@ for x in lines:
 
     else: 
         pass
-
-
-# # failed attempt at class iteration below 
-# class Rectangle:
-
-#     def __init__(self): 
-#         pass
-
-#     # def __init__(self, l, w):
-#     #     self.len = l
-#     #     self.wid = w
-
-#     def __iter__(self):
-#         self.i = 1
-
-#     def __next__(self):
-#         splits = i.split(',')
-#         shape = splits[0]
-
-#         if self.i > len(lines) or shape != 'Rectangle':
-#             raise StopIteration
-        
-#         len = int(splits[1])
-#         wid = int(splits[2])
-
-#         recArea = len * wid
-#         return int(recArea)
-
-
-# for x in Rectangle(len(lines)):
-#     print(x)
 
